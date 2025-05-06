@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To My Love 💖</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to top right, #fff0f5, #ffe4e1);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #ff66a3;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff3385;
+    }
+
+    .popup, .question, .love-text, .message {
+      display: none;
+    }
+
+    .love-text {
+      font-size: 40px;
+      color: #ff3366;
+      position: absolute;
+      top: 40%;
+      left: -100%;
+      animation: moveText 5s linear forwards;
+    }
+
+    @keyframes moveText {
+      0% { left: -100%; opacity: 1; }
+      80% { left: 50%; transform: translateX(-50%); opacity: 1; }
+      100% { left: 100%; opacity: 0; }
+    }
+
+    .message {
+      font-size: 20px;
+      color: #b30059;
+      margin-top: 20px;
+      width: 70%;
+      animation: fadeIn 3s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <button id="startBtn">Click Me 💌</button>
+
+  <div class="popup" id="popup">
+    <h2>To My Love 💖</h2>
+  </div>
+
+  <div class="question" id="question">
+    <p>Do you want to know what I feel for you?</p>
+    <button onclick="showLove()">Yes 💕</button>
+    <button onclick="noLove()">No 😢</button>
+  </div>
+
+  <div class="love-text" id="loveText">I LOVE YOU ❤️</div>
+
+  <div class="message" id="message">
+    For the rest of my life, I will love you like no one else has. Until the end of my days, my heart will beat only for you, my love. With the whole of my heart, body, and mind, I love you completely, and there is nothing else in this world that makes me so happy! You make me the luckiest person in the world with your unconditional love.
+  </div>
+
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const popup = document.getElementById('popup');
+    const question = document.getElementById('question');
+    const loveText = document.getElementById('loveText');
+    const message = document.getElementById('message');
+
+    startBtn.addEventListener('click', () => {
+      startBtn.style.display = 'none';
+      popup.style.display = 'block';
+
+      setTimeout(() => {
+        question.style.display = 'block';
+      }, 1500);
+    });
+
+    function showLove() {
+      question.style.display = 'none';
+      loveText.style.display = 'block';
+
+      setTimeout(() => {
+        loveText.style.display = 'none';
+        message.style.display = 'block';
+      }, 5500);
+    }
+
+    function noLove() {
+      question.innerHTML = "<p>Okay 😔 but just know... I still love you.</p>";
+    }
+  </script>
+
+</body>
+</html>
